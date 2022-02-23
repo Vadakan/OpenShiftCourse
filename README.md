@@ -60,3 +60,135 @@
 
 
 ![image](https://user-images.githubusercontent.com/80065996/155158540-6224488a-05e9-4cdb-85ec-069820782e9c.png)
+
+
+# we are going to use simple hello-world application using 'oc' command line
+
+
+
+# using command line is the best way of learning openshift. Only Ops team will make use of webconsole to monitor the openshift cluster. developers mostly use 
+# command line tool 'OC'
+
+
+![image](https://user-images.githubusercontent.com/80065996/155264324-df84df04-91fb-4d29-b199-153ab02b6b6c.png)
+
+
+# main use of terminal 'OC' - WE CAN AUTOMATE THE TASKS USING SHELL SCRIPT.BUT IN WEB CONSOLE WE CANNOT DO THE AUTOMATION
+
+
+![image](https://user-images.githubusercontent.com/80065996/155264462-d320995c-aae1-486b-b08d-a48505418cee.png)
+
+
+# BASIC LINUX KNOWLEDGE NEEDED
+
+
+![image](https://user-images.githubusercontent.com/80065996/155264550-6615ac67-baea-4068-a704-4203686506e8.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155264697-627ec1f2-661c-4184-82ba-824fb59521c7.png)
+
+
+# Installation:
+
+
+![image](https://user-images.githubusercontent.com/80065996/155265260-dfd3005b-2850-44db-ade9-79adf1279850.png)
+
+
+# We are planning to use Redhat hosted sandbox for our learning purpose
+# we can create account in redhat site and use the sandbox. Sandbix will come with all the setup for openshoft cluster.
+# we have to reinstall the cluster once in every 35 days. That is the only problem.
+# Once sandbox is set up, we have to download the command line ('oc') from the cluster itself
+
+
+![image](https://user-images.githubusercontent.com/80065996/155269990-2a316fc3-c510-48e4-a6ea-601443c6241f.png)
+
+
+# Once downloaded unzip the folder and set the 'environment variable'(user variable) for this path.
+
+# open the 'windows powershell' as the adminstrator type 'oc'
+
+
+![image](https://user-images.githubusercontent.com/80065996/155270110-3fdbae49-45aa-40b3-8f1e-6ba246395765.png)
+
+
+# click the 'copy login command' as highlighted below
+
+
+![image](https://user-images.githubusercontent.com/80065996/155270203-256676e9-4c98-4468-bf03-c77367c35242.png)
+
+
+# you will get API token,
+
+
+![image](https://user-images.githubusercontent.com/80065996/155270305-49b267df-766d-4ede-8348-277f0d817011.png)
+
+
+# use this API Token to login into the openshift cluster running inside the sandbox,
+
+
+![image](https://user-images.githubusercontent.com/80065996/155270358-ac271173-c4e2-4fc2-97f9-4c1c9af50679.png)
+
+
+# clone the below git repository from the gitlab. this repo is going to get used throughout the complete tutorial of openshift
+
+
+![image](https://user-images.githubusercontent.com/80065996/155270463-1d38e14c-893d-4b64-b1e8-c6e0330cfca4.png)
+
+
+# open accounts in 
+# 1)quay.io - for image stream repository
+# 2)gitlab - hosted repository for github repos
+
+
+# Note: Docker image can be pushed to 'Docker hub','artifactory','quay.io'. it purely depends on the project
+
+
+![image](https://user-images.githubusercontent.com/80065996/155274410-8601975f-d282-4096-9548-1a08a10f7b0d.png)
+
+
+# Note: When your docker image repository is in 'Dockerhub', then we can mention only the image name frmo Dockerhub.
+# When you docker image is in 'quay.io', then we have to mention complete path of the image name like shown below,
+
+
+![image](https://user-images.githubusercontent.com/80065996/155276851-8484e092-5387-46f9-b377-cd41d3999fd1.png)
+
+
+# ports
+
+
+![image](https://user-images.githubusercontent.com/80065996/155277650-e37aff5a-6da4-4bca-922a-8439afd22536.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155277676-bf7a8a79-e875-4066-8f76-85d19d61d14f.png)
+
+
+# see the full command below to set the port
+# host port can be anything (host is the EC2 machine in which container is running). continaer port is the one in which application port used in the code listening to
+# in our case, golang API server running inside the container exposed in port '8080'
+
+
+![image](https://user-images.githubusercontent.com/80065996/155277859-2b2e7035-7b47-44b4-9fe4-d8154665f86c.png)
+
+
+# Base image
+
+
+![image](https://user-images.githubusercontent.com/80065996/155281058-64d28a89-cf73-495e-8fcf-b6d7bb858bd1.png)
+
+
+# Dockerfile for simple golang API server app
+
+
+![image](https://user-images.githubusercontent.com/80065996/155281531-78b17f65-11c7-4b84-9074-e571f205fa56.png)
+
+
+
+# Environment variable set up
+# in below screenshot, we are setting the value to the environment variable names 'Message' with a big string message 
+
+
+![image](https://user-images.githubusercontent.com/80065996/155282038-98ec55ee-1d58-42cb-865d-4d36c0c6b7d3.png)
+
+
+
+
