@@ -398,6 +398,91 @@
 ![image](https://user-images.githubusercontent.com/80065996/155678800-2dd6d35a-075a-43eb-9e65-0a231a8ada34.png)
 
 
+# how to clean up a 'deployment-config' using 'label-selector'
+# NOTE:
+# 1) IN KUBERNETES, WE DONT HAVE OPTION TO GET IMAGE FROM DOCKER HUB AND CREATE A DEPLOYMENT WITH 'KUBECTL' COMMAND
+# 2) BUT IN OPENSHIFT, WE HAVE A COMMAND FOR THIS WITH 'OC' TOOL. 
+
+
+![image](https://user-images.githubusercontent.com/80065996/155687762-c167382f-58e1-4c0d-8b81-90f5c15adcd7.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155688141-696cb273-bc91-41fc-8d49-d914ace52ac9.png)
+
+
+# we are going to clean up the 'deployment-config' using labels. so we are using 'oc describe' command to get the labels
+
+
+![image](https://user-images.githubusercontent.com/80065996/155689135-f49924b3-01f2-4d5f-b7c4-dcc3e46defe3.png)
+
+
+
+![image](https://user-images.githubusercontent.com/80065996/155688721-4cb5c0d9-4528-45e3-9cc3-ea913bdcf6ff.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155689331-799290df-80d6-473b-bba0-17c19e3fb932.png)
+
+
+# note : we cannot delete the deployment in kubernetes by using labels. but in openshift we can delete the deployment using labels
+# while selecting the appropriate label, see the label under the 'deployment' section from the result displayed by 'oc describe' command as highlighted above
+# also leave the label which is having dot operator inbetween (.).
+
+
+# confirming all the resources are deleted completely
+
+
+![image](https://user-images.githubusercontent.com/80065996/155692881-e1bdb305-8ab9-4e1d-90a6-6ede3d867c6f.png)
+
+
+# CONCEPT: 'NAMING THE DEPLOYMENTS'
+# without giving name to the deployment, it will by default take the name of the 'image'
+
+
+![image](https://user-images.githubusercontent.com/80065996/155693801-49dc1d71-f3de-4803-998c-1a3ce27a7329.png)
+
+
+# Now all the resources (services,deployment-config,image streams) are named as 'demo-app' as given in the command
+
+
+![image](https://user-images.githubusercontent.com/80065996/155695192-faba99ea-6a0d-4eed-bef9-4d6c36820395.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155695636-350670d7-bb3e-4818-83c2-d5bd1c26fed2.png)
+
+
+# you can do any number of deployments by changing the name of deployment. In this example, we have created a new deployment as shown below. Total 2 deployments are visible
+
+
+![image](https://user-images.githubusercontent.com/80065996/155696106-c58b5541-3ab1-4c12-9604-fc863e1adf73.png)
+
+
+# find the label using 'oc describe' command for 'deployment-config'
+
+
+![image](https://user-images.githubusercontent.com/80065996/155696915-9458f964-2f1b-4e34-a5c1-65b7d0f26aaa.png)
+
+
+# deleting the first 'deployment-config' as shown below. Notice that even labels are created with name we have given in the command for 'deployment-config(demo-app)'
+
+
+![image](https://user-images.githubusercontent.com/80065996/155697154-db532d65-30c3-456b-a3b2-ec4cf12f0874.png)
+
+
+# we had 2 'deployment-config' (demo-app and demo-app2). we deleted the first 'deployment-config'. Only second 'deployment-config' exists
+
+
+![image](https://user-images.githubusercontent.com/80065996/155697768-fd9b3648-7c73-4ce2-9c84-7d99a03ce924.png)
+
+
+# now delete second 'deployment-config' too. identify the label using 'oc describe' command
+
+
+![image](https://user-images.githubusercontent.com/80065996/155698021-a28deb74-3342-4ff4-b5f9-c5de7f0b3cbc.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155698223-05da85dd-db6b-47fd-a41f-4b4f646d5c0d.png)
+
+
 
 
 
