@@ -267,5 +267,137 @@
 ![image](https://user-images.githubusercontent.com/80065996/155577506-d3e0e626-6cb6-4387-bd21-d511a19c9c43.png)
 
 
+# check the resources in the cluster using 'oc get'
+
+
+![image](https://user-images.githubusercontent.com/80065996/155656201-66cc1bbf-fc45-46f4-9651-8e2c9bfe7cc5.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155656258-6283d57a-8db3-4dfa-8bae-41273f99969c.png)
+
+
+# getting inside of the pods and running a shell. Note: Once you get inside the pod, you are always inside of the container too in a single pod with single app running inside
+
+
+![image](https://user-images.githubusercontent.com/80065996/155656551-f73cffa0-63cd-459a-94a2-d6ebf83b98d3.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155657450-52841cba-ad1e-45e4-9b27-c8135bf14432.png)
+
+
+
+![image](https://user-images.githubusercontent.com/80065996/155657612-2cc54e0c-587f-483c-8686-0529ab2a92d8.png)
+
+
+# how to delete the resources in openshift cluster. we have to use 'oc delete' command. while using 'oc delete' command we have to mention the resource type as well.
+# because with oc command we can delete almost anything in the openshift cluster. 
+
+
+# error will be throwed if we didnt mention the resource type as shown below
+
+
+![image](https://user-images.githubusercontent.com/80065996/155658772-374b35e0-3dcc-4788-a765-fb610893285c.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155658885-c2ac6978-8055-4349-8d4c-eebf68749567.png)
+
+
+# how to watch lifecycle of pod. -- open multiple teminals for this demo
+
+
+![image](https://user-images.githubusercontent.com/80065996/155659537-fa16a22f-c4fc-4c7b-b452-253b5bc07514.png)
+
+
+# kept one terminal for watching and open the other terminal and run the 'oc create' command for pod. you can see the lifecycle clearly 
+
+
+![image](https://user-images.githubusercontent.com/80065996/155660063-b94bf15e-466d-484c-a82c-d43419172785.png)
+
+
+# check the status of deletion of the pod.
+
+
+![image](https://user-images.githubusercontent.com/80065996/155660490-f05d6481-41e8-4bf1-8a82-ae8304880e05.png)
+
+
+# 'oc explain' - understanding the YAML definition of pod
+
+
+![image](https://user-images.githubusercontent.com/80065996/155663020-41c96de5-bb11-4b03-8ad4-5299a7d8530c.png)
+
+
+# note: first (pod) - is resource name. next followed by objects names(header names) in the YAML file. you have to traverse the fields in YAML by mentioning parent
+# followed by child
+
+
+![image](https://user-images.githubusercontent.com/80065996/155663262-c7ccfb5f-16ce-4620-ac04-7793f1a3e696.png)
+
+
+# CONCEPT: NEXT OPENHIFT RESOURCE TYPE - DEPLOYMENTCONFIG - SAME AS 'DEPLOYMENTS' IN KUBERNETES
+
+
+![image](https://user-images.githubusercontent.com/80065996/155663776-df906353-6043-4059-8260-f9d412b72d53.png)
+
+
+# documentation for 'deploymentconfig'
+
+
+![image](https://user-images.githubusercontent.com/80065996/155664438-38e8da73-2930-4425-8102-dea08b125a42.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155665089-3285313f-8a66-4cd0-94f4-ba917e2f6b1b.png)
+
+
+# 'deploymentconfig' using image name
+
+
+![image](https://user-images.githubusercontent.com/80065996/155674607-7f07be57-2c44-446a-b352-6f00bfc75dfe.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155675146-fb0e643a-bb63-488e-a377-da37d700af81.png)
+
+
+# we have created 'deployment-config' using already existing image from 'quay.io' repository. Note: we didnt create a YAML file for this. 
+
+
+![image](https://user-images.githubusercontent.com/80065996/155675601-13b5567a-bef1-4266-9b34-6169b5757d51.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155675798-324af090-25ca-434a-8ab6-2e71c4a374f9.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155675944-7495281d-c1eb-4f93-b2a9-3d9b25b23d63.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155676026-690be070-ba00-48f8-9ba5-0405a3f24618.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155676658-b104ec96-67b9-472f-8e50-e82eb77d2e5b.png)
+
+
+# Cleaning up 'deployment-config'
+
+# demo: if i try to delete a pod, you could see immediately another pod is starting up.
+
+
+![image](https://user-images.githubusercontent.com/80065996/155677748-b5458aae-05ad-42ca-8f39-660ef8f0a4a0.png)
+
+
+# how to see image stream details
+
+
+![image](https://user-images.githubusercontent.com/80065996/155678161-19566064-596f-40d3-b301-20ff3a20af0a.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155678251-c0f26a16-131d-414c-9bcf-44552766ac6d.png)
+
+
+# cleaning up the 'deployment-config' 
+
+
+![image](https://user-images.githubusercontent.com/80065996/155678800-2dd6d35a-075a-43eb-9e65-0a231a8ada34.png)
+
+
+
 
 
