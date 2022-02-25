@@ -483,6 +483,18 @@
 ![image](https://user-images.githubusercontent.com/80065996/155698223-05da85dd-db6b-47fd-a41f-4b4f646d5c0d.png)
 
 
+# CONCEPT : DEPLOYING APPLICATION FROM GIT. BECAUSE ALL THE TIME, WE CANNOT FIND OUR IMAGE IN REPOSITORY (EITHER QUAY OR REPOSITORY ETCC...)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155751580-f225c0ae-fa16-4f78-bcde-9f4f5d972211.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155752583-513298d2-af47-40c4-941d-64a45213c239.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155752925-87589180-7ac5-427a-b984-ebd151a08859.png)
+
+
 
 
 
