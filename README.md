@@ -496,5 +496,78 @@
 
 
 
+# how automated creation of 'docker image' happened in the backend. This is called as 'Build config'
+# We can see 'build config' and 'image stream' in detail little later.
+# this demo we have given only 'github' repo. so openshift 'build config' will clone the git repo and then build it using dockerfile present ithe git repo and push the image to 
+# image repository and tag it. Also a trigger will be added to the image repository. If any changes to code it will get rebuild again.
+
+
+![image](https://user-images.githubusercontent.com/80065996/155836965-6578f942-039d-4df7-ad59-696461658a93.png)
+
+
+# 'oc logs -f bc/hello-world'  -- below image gives the detailed steps and logs on how this build happened.
+
+
+![image](https://user-images.githubusercontent.com/80065996/155837263-bda6f3d7-a474-4dc2-a2ca-5e7131a1ab7a.png)
+
+
+# there will be certain pod which will be in completed status when we deploy application. They are called 'build pods', those pods will  be in completed status.
+# they are just like doing the job get completed. openshift will delete them in sometime and reclaim its resources.
+
+
+![image](https://user-images.githubusercontent.com/80065996/155837401-20a81341-79ab-4774-8d22-304b9579f779.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155837539-5b9fd7b5-ba48-4bf1-b5e9-56ce0414045a.png)
+
+
+# clean up and resdy for next set of demo. Since we build this time, you can see 'build config' is create seprately and it got cleaned up.
+
+
+![image](https://user-images.githubusercontent.com/80065996/155837585-aac80a6c-f24d-4030-aa9d-fdc6c6747b6f.png)
+
+
+# CONCEPT := REPLICATION CONTROLLER
+
+
+![image](https://user-images.githubusercontent.com/80065996/155837615-125a84ee-ea63-4bd6-8bfb-33771d13b972.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155837705-f58a8cef-bfb5-49ff-9bec-667ed43a6b99.png)
+
+
+# demo: deploy application from quay.io
+
+
+![image](https://user-images.githubusercontent.com/80065996/155837718-78f5b7bb-0eec-47e6-8f8a-b81791bfbd48.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155837741-242f973d-3612-4fb0-bd39-f11d0f046302.png)
+
+
+# we are going to see the YAML file for 'deployment config' in openshift to understand better. below command will display the YAML in screen
+
+
+![image](https://user-images.githubusercontent.com/80065996/155837773-8bda6e2f-5c28-4aee-aecf-a3efc9fa26bd.png)
+
+
+# instead we can take the output to file like shown below,
+
+
+![image](https://user-images.githubusercontent.com/80065996/155837820-8aef8116-3b61-4b96-b397-2cb29021841e.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155837990-fa8e2e0e-7853-432e-b8fe-816f17f4e941.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155838006-060b281e-2d98-4427-ae9a-426f81cb5915.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155838018-cc8af99a-b0dd-4e5e-814b-32fa0735a462.png)
+
+
+
+
+
 
 
