@@ -566,8 +566,156 @@
 ![image](https://user-images.githubusercontent.com/80065996/155838018-cc8af99a-b0dd-4e5e-814b-32fa0735a462.png)
 
 
+# How to check the replication controllers?
 
 
+![image](https://user-images.githubusercontent.com/80065996/155845318-c784ff2f-f053-4420-ada7-ca9fd5dbb6df.png)
+
+
+# CONCEPT:= ROLLOUT AND ROLLBACK OF APPLICATION
+# 1) oc rollout
+# 2) oc rollback
+
+
+# open two terminals for this demo
+
+
+![image](https://user-images.githubusercontent.com/80065996/155845488-b14a756c-252c-4356-a1df-f3e58e9b9e00.png)
+
+
+# run the application using image present in 'quay' repository in one of the terminal window
+# NOTE: WE ARE INSTALLING THE APP NOT AS 'DEPLOYMENT CONFIG'. only as'deployment'
+
+
+![image](https://user-images.githubusercontent.com/80065996/155845748-74a4ddc4-f1ac-4fbc-ac03-7c07fd66e3ef.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155845814-b888a26d-93f0-458a-8740-39d7611f6b1a.png)
+
+
+# run pod watch in one of the terminal
+
+
+![image](https://user-images.githubusercontent.com/80065996/155845846-ea055a07-9c06-4b42-a061-da555dfdb87b.png)
+
+
+# rollout command
+
+
+![image](https://user-images.githubusercontent.com/80065996/155845865-cf46c1f0-1f94-4fab-960a-8a620bdf4d7a.png)
+
+
+# if we use only 'deployment' we cannot do rollback
+
+
+![image](https://user-images.githubusercontent.com/80065996/155845912-b837e91e-c7f9-44e9-8ed3-fe207d9e971e.png)
+
+
+
+# deleted the deployment and created 'deployment-config' of the application
+
+
+![image](https://user-images.githubusercontent.com/80065996/155846013-5003feab-f43a-4a1e-8fb8-38a52d19d70d.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155846034-f5bc6102-a8d5-41fb-b7e9-4edf8122333d.png)
+
+
+# run the pod watch in one 'terminal' and in other terminal we are going to rollout the deployment
+
+
+![image](https://user-images.githubusercontent.com/80065996/155846113-26518196-2051-497c-b0c6-01246d6ddf6c.png)
+
+
+# you could see pods under first replicaset (hello-world-1) is deleted and new replica set(hello-world-2) is created and pods are scheduled newly in second replica set
+# counter for pods in old replicaset is reset to zero
+
+
+![image](https://user-images.githubusercontent.com/80065996/155846211-581100d0-fca8-4d1c-8883-4a66eca6bb70.png)
+
+
+
+# explantion:
+
+
+![image](https://user-images.githubusercontent.com/80065996/155846296-70eddd33-70fa-4553-95b5-8648c0af4b22.png)
+
+
+# we have 'deploy' pod which starts and then created new pods in new replication controller and then gets completed.
+# also we could see old pods are also getting terminated.
+# pods are getting showed in lifecycle - pending,creating,running,completed/terminated.
+
+
+# rollback to previous version if a new version you rollout has an error
+
+
+![image](https://user-images.githubusercontent.com/80065996/155846400-03895335-447c-43c6-a505-4f26026383ce.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155846661-67d10bc1-5ae5-4ff3-bf03-b84a4553a95a.png)
+
+
+# CONCEPT: INTRODUCTION TO SERVICES
+
+
+![image](https://user-images.githubusercontent.com/80065996/155846776-be7c3ead-77a5-4589-a256-5e7def4d67d5.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155846802-94a4138e-e6fe-4d63-a3e3-4a0503b35576.png)
+
+
+
+![image](https://user-images.githubusercontent.com/80065996/155846861-972c3883-2c94-47bf-bee6-b5dac8a0adf3.png)
+
+
+# NAVIGATE TO BELOW DIRECTORY WE DOWNLOADED
+
+
+![image](https://user-images.githubusercontent.com/80065996/155846915-efc6289f-3b94-4676-a621-78b608a5083c.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155846951-99b13caf-f5e9-4ff6-9d49-7c5eb386abe4.png)
+
+
+# create a pod from YAML we have
+
+
+![image](https://user-images.githubusercontent.com/80065996/155847021-73fce2f1-6f3d-4740-a492-5fb47e82b25a.png)
+
+
+# expose the pod
+
+
+![image](https://user-images.githubusercontent.com/80065996/155847087-111b06a6-e349-4f2e-8eea-2d66d26b3c30.png)
+
+
+# when we run this command to expose the pod to outside world, we should get this error
+
+
+![image](https://user-images.githubusercontent.com/80065996/155847125-76306009-79cc-40a6-89c6-c0474f50e8dc.png)
+
+
+# oc expose command needs a little more information. 
+# 'oc expose' command is creating the service for the pod which is exposed in the port 8080 by the application running inside the pod
+# but default service created by openshift 'oc expose' command is using only 'cluster ip' service
+
+
+![image](https://user-images.githubusercontent.com/80065996/155847154-f2e20106-b2f9-46cc-ad0e-cc60f6d88ae2.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155847174-6208c4a4-a80f-414c-80e1-f70e5d611509.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155847246-fd05e1a8-7560-49f8-adf0-df13c3017c5f.png)
+
+
+# create the second pod as part of demo using YAML file we have in our local folder
+
+
+![image](https://user-images.githubusercontent.com/80065996/155847304-b0d5c217-cce9-4467-8eae-090a6d0a87ab.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155847374-dc500e84-e480-43c0-9cad-5d3362742271.png)
 
 
 
