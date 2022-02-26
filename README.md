@@ -718,4 +718,97 @@
 ![image](https://user-images.githubusercontent.com/80065996/155847374-dc500e84-e480-43c0-9cad-5d3362742271.png)
 
 
+# to communicate application running inside another pod, we need to use ip address of service created to load balance the pod
+# now we have pod-1 which is having service which is loadbalancing it
+# second pod (pod-2) we created is not having any service. we entered the second pod and called the application running inside the pod-1
+
+
+![image](https://user-images.githubusercontent.com/80065996/155849917-833eede8-2bda-4cdf-b850-d6e69988768d.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155850029-c5b62e15-56a6-418d-9131-0497c68863ce.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155849964-4a4211d0-17d6-4aa1-825d-53e3add30eaa.png)
+
+
+# accessing another pod using service with the help of environment variable - more robust way.
+# first way - we used 'oc status' command and got the ipaddress of service and then called the application over the network which is running inside another pod
+
+
+![image](https://user-images.githubusercontent.com/80065996/155850086-2c19610a-f373-4b9e-986c-0b41547b4c7a.png)
+
+
+# check the environment variables inside the pod by giving below command after entering into the pod
+
+
+![image](https://user-images.githubusercontent.com/80065996/155850320-a9b5e4a6-fc20-4d3e-9e9b-3042abdba8de.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155850538-d364e5f8-9996-4f9a-8bff-c41fd2f698c2.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155850946-2d5c17fb-a0d1-4535-9163-79496359c797.png)
+
+
+# you can use the environmant variable for ipaddress and port number. just use dollar symbol($) before and then give the environment variable as shown below
+
+
+![image](https://user-images.githubusercontent.com/80065996/155851004-d36f5d86-b430-4ce6-a317-bece3dfea970.png)
+
+
+# so in openshift, for every pod created from 'deployment-config', if we enter into the pod, it will have environment variables which has ipaddress of services created to 
+# load balance the deployment-config created. so we can use that to connect to pods over the network
+
+
+
+# CONCEPT: EXPOSING THE ROUTE. (This is similar to 'Nodeport' in the kubernetes)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155851465-934dc0d1-e661-4a21-a0ae-0c4159341cbd.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155851796-3646309f-9a08-493c-ac53-2863fb59b62f.png)
+
+
+# NOTE: WE CAN CREATE A 'ROUTE' BY USING 'OC EXPOSE' COMMAND. WE CAN EXPOSE A POD SEPARATELY AND 'SERVICE' SEPARATELY. 
+# MOSTLY WE USE TO EXPOSE THE 'SERVICE' CREATED FOR 'DEPLOYMENT-CONFIG' BY USING 'OC-EXPOSE' COMMAND
+# 'OC EXPOSE' COMMAND WILL GIVE US THE 'URL' TO ACCESS THE APPLICATION FROM THE BROESE.
+# AS SHOWN ABOVE WE GOT THE URL. BY USING THE URL, WE ACCESSED THE APPLICaTION RUNNING INSIDE THE OPENSHIFT CLUSTER
+
+
+![image](https://user-images.githubusercontent.com/80065996/155852081-c8797ebd-fbfe-45c5-bb40-80317140429a.png)
+
+
+# EXPOSING A POD - CREATES THE 'SERVICE' 
+# EXPOSING THE SERVICE - CREATES THE URL TO EXPOSE THE APPLICATION TO GET ACCESSED FROM BROWSER
+
+
+# delete all the existing resources and deployed a new application. once 'deployment-config' is created it will by default ask us to expose the application.
+
+
+![image](https://user-images.githubusercontent.com/80065996/155852297-3a113b66-519b-483e-94a3-3c89eb3564b9.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155852523-d54445c5-a98c-495e-95e5-9d74750ba531.png)
+
+
+# run 'oc status' to check the URL,
+
+
+![image](https://user-images.githubusercontent.com/80065996/155852617-367983de-7c3f-4fcf-b953-a549fd76dbfe.png)
+
+
+# result in the browser
+
+
+![image](https://user-images.githubusercontent.com/80065996/155852645-1773c5ce-9a24-4929-9b63-98c5552100c2.png)
+
+
+
+
+
+
+
+
 
