@@ -805,6 +805,165 @@
 ![image](https://user-images.githubusercontent.com/80065996/155852645-1773c5ce-9a24-4929-9b63-98c5552100c2.png)
 
 
+# intro to routes
+
+
+![image](https://user-images.githubusercontent.com/80065996/155872136-66e34631-fa5b-487f-acdc-7469a33886cb.png)
+
+
+# ROUTE is new to openshift. it is not available in kubernetes.
+# 'ROUTE' is used to expose the 'service' to outside world by providing 'DNS URL'. (similar to 'nodeport' in kubernetes)
+# when we run 'oc expose' command 'route' will be created.
+
+
+![image](https://user-images.githubusercontent.com/80065996/155872434-ff5fc11d-8c67-45b9-9883-0879a0e59b7a.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155872484-a8f8955d-d1e7-4821-8c7f-bbbdb76a0e68.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155872509-4511f0ae-388a-4463-b8f7-06c18c76197c.png)
+
+
+# just check the 'spec' section it shows it created the 'route' for 'service' (mentioned in 'to' section) of YAML))
+
+
+![image](https://user-images.githubusercontent.com/80065996/155872535-b3ba2297-bdfe-4e12-825c-db1ad51cd1e9.png)
+
+
+
+# CONCEPT : CONFIGMAPS
+
+
+![image](https://user-images.githubusercontent.com/80065996/155872643-85610e5d-bb7b-4b34-bf01-7ab6da51f6d1.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155872655-a69e8cb2-bbf4-4b13-93d0-e342954f7016.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155872664-0ba04d37-b782-4b4b-8bd5-197549197790.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155872689-e96337b7-be71-45bd-89be-19821d49e6c0.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155872718-bced876a-2992-4497-ac34-6db40749e6e7.png)
+
+
+# WE SHOULD NOT STORE ANY SENSITIVE INFORMATION IN 'CONFIGMAP'. WE HAVE SEPARATE RESOURCE TYPE IN OPENSHIFT FOR STORING SENSITIVE INFORMATION
+
+
+![image](https://user-images.githubusercontent.com/80065996/155872752-62de8f25-08c1-4662-9d51-269f9c3fb73a.png)
+
+
+# Limitation of configmaps is we can create configmap which is having limit of 1 MB only. More than 1 MB, we cannot use 'configmap' we have to use alternative
+
+
+![image](https://user-images.githubusercontent.com/80065996/155873827-8fffba27-b286-4132-8625-da73ea46458a.png)
+
+
+# configmap is used when we have situation to use environment variables in our deployment file in multiple places which are repetitive. instead of mentioning multiple
+# times, we can create a 'configmap' resource and refer the value from it. 
+
+
+# sample YAML file for creating configmap
+
+
+![image](https://user-images.githubusercontent.com/80065996/155874056-a387bb3e-a6e9-452f-b982-df5c3366441f.png)
+
+
+# CREATING CONFIGMAP FROM COMMAND LINE
+
+
+![image](https://user-images.githubusercontent.com/80065996/155874079-605ef6b5-a0ba-410d-bdfd-c3b33ba648e2.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155874308-76464981-e266-480e-9bce-10ca96ffa8f5.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155874344-8d1c18c4-b995-4015-b3d9-40790b56bf1a.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155874422-1c50a522-27d0-4a44-9173-603a82f8132f.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155874445-c7b62c70-e2bb-4607-afec-6bd836a06fb5.png)
+
+
+# we need to always look for the 'DATA' section in the configmap YAML. 'DATA' section will contain the environmant variables we are going to share across the
+# multiple pods.
+
+
+# below is the code we have to use to retireve the environment variable we are setting using configmaps.
+# os.getenv(environment_variable_name)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155874497-1f4d9dbf-8fe8-42d6-ba1b-d6ab25753b18.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155874572-c6b912fb-8115-4335-a72f-58073e739fea.png)
+
+
+# CONCEPT: CREATING 'CONFIG-MAP' USING 'DEPLOYMENT-CONFIG'
+
+
+![image](https://user-images.githubusercontent.com/80065996/155874733-c0d656f0-52e5-47d0-95ee-74089f1f3bed.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155874769-e8c5556c-1255-4ad6-949e-401070c0bf1f.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155874785-783a19d0-e5fd-42d5-9506-9b2453ac7dce.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155874848-6d371501-0fe0-4670-a0a8-646a44a72f4b.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155874858-82837268-8000-4e8d-91d3-3d1b14759b5c.png)
+
+
+# we are getting the default message in the environment variable. This is because, we created configmap and deployment-config separately but we are yet to make a
+# connection or link between configmap and deployment-config
+
+
+![image](https://user-images.githubusercontent.com/80065996/155875009-4ef71910-4a6d-4169-b0f1-0f39cdb14b63.png)
+
+
+# connecting command 
+
+
+![image](https://user-images.githubusercontent.com/80065996/155875015-9a38e829-3282-47a5-8d63-03e10cc1f9ba.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155875100-56ecee99-507f-4555-9cbf-f83585cad05f.png)
+
+
+# successfully overrided the environment variable using configmap as shown below
+
+
+![image](https://user-images.githubusercontent.com/80065996/155875164-923e6f8d-81c5-47c2-8c0a-f7c3638f2adf.png)
+
+
+
+![image](https://user-images.githubusercontent.com/80065996/155875310-7309093c-63f1-4f6d-898e-6b79d0ad84f3.png)
+
+
+# Notes: 
+# 1) when we create configmap via 'oc create' command, YAML file will be created behing the scenes for the key value pair we have given in the command(MESSSAGE)
+# 2) so configmap resource will be created.
+# 3) you can use 'oc get -o yaml cm 'cm_name' > cm.yaml' to see the YAML file
+# 4) next we will create deployment config using ' oc new-app' command for the 'hello-world' application
+# 5) you can go 'oc get -o yaml dc hello-world' > dc.yaml to see the deployment-config yaml. This YAML will not map configmap with our deployment-config yaml
+# 6) you have to connect the configmap with deployment config using a connector command 'oc set'
+# 7) once connected, you can run 'oc get -o yaml dc hello-world' > up.yaml to see configmap section
+
+
+![image](https://user-images.githubusercontent.com/80065996/155875567-afbe27aa-122c-4fda-a846-ae792806731c.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/155875587-589e9bd7-c772-4e89-9d21-1fe6d9c3a819.png)
+
+
 
 
 
