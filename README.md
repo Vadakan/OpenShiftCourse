@@ -1193,6 +1193,110 @@
 
 
 
+# CONCEPT: INTRO TO 'IMAGES' - 'IMAGE' AND 'IMAGE STREAMS' AND 'IMAGE STREAM TAG'
+
+
+![image](https://user-images.githubusercontent.com/80065996/156144293-2c638b58-c8f9-44f4-b481-90a723fa0a35.png)
+
+
+# 'IMAGE STREAM' IS NOTHING BUT SET OF IMAGES. FOR EXAMPLE, IF YOU TAKE GOLANG, WE HAVE MORE NUMBER OF IMAGES WITH DIFFERENT TAGS IN THE DOCKER HUB
+# UNDER 'TAG SECTION'. COLLECTION OF THE IMAGES ARE CALLED 'IMAGE STREAM' AND TAG ASSOCIATED WITH EACH IMAHE IS CALLED 'IMAGE STREAM TAG'
+
+# ONE MAJOR DIFFERENCE FOR THIS TERM IS, WE CAN SET UP A TRIGGER FOR THE IMAGE TAG WITH 'DEPLOYMENT-CONFIG', IF IN CASE ANY NEW CHANGE PUSHED FOR THAT IMAGE, 'DEPLOYMENT-CONFIG' WILL BE TRIGGERED AUTOMATICALLY.
+
+
+![image](https://user-images.githubusercontent.com/80065996/156144779-1c6b714f-f550-46b1-a996-5e31960d1e71.png)
+
+
+# create a new 'deployment-config' called 'hello-world'. you could see 'image stream' also created as part of this command while creating 'deployment-config'
+
+
+![image](https://user-images.githubusercontent.com/80065996/156146652-d5fbad41-6210-467a-894d-3f2efa206ac7.png)
+
+
+# 'image stream' is the openshift resource, we can see it by using 'oc get' command
+
+
+![image](https://user-images.githubusercontent.com/80065996/156147295-3b47a1f1-603d-4abc-a2e5-cfac5cbd1957.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156147326-2339523d-063a-4a6a-bfda-daaf558e0206.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156147604-c4f53b56-e0d6-4030-bd72-ff662237b26a.png)
+
+
+# image will be pulled from the 'quay.io' and stored in the 'image stream repositoy' in the openshift. (similar of 'image cache' in docker architecure)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156149060-f1bec9ba-97e3-42fc-953b-2ec9b6b27144.png)
+
+
+
+# CONCEPT: HOW TO CREATE 'IMAGE STREAM'. IN OPENSHIFT WE CAN CREATE 'IMAGE STREAM' WITHOUT EVEN CREATING 'CONFIG-MAP'
+
+
+![image](https://user-images.githubusercontent.com/80065996/156149148-18b1075b-56a2-452a-9149-10dd0bf8ede1.png)
+
+
+
+# before this demo, make sure we dont have any 'image tag' or 'image stream' present already
+
+
+![image](https://user-images.githubusercontent.com/80065996/156151559-11f8a7e2-0930-4d77-b0a2-40f360007d13.png)
+
+
+# command to create new 'image stream'
+
+
+![image](https://user-images.githubusercontent.com/80065996/156151906-e7cd5e40-790b-44b9-adc9-5a7a44a92703.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156152627-8ca0f5a5-b313-428f-8b74-c7dc961a6cde.png)
+
+
+# describe 'image stream tag'
+
+
+![image](https://user-images.githubusercontent.com/80065996/156153211-1c96b7ab-d5bc-45e1-9465-34d54fe76cfa.png)
+
+
+# describe 'image steam'
+
+
+![image](https://user-images.githubusercontent.com/80065996/156153424-fdc34635-ab67-4df1-9049-a79e0eaae0ec.png)
+
+
+# command to create 'deployment-config' using our own newly created 'image-stream' rather than default openshift created 'image-stream'
+
+
+![image](https://user-images.githubusercontent.com/80065996/156154355-f68b9bc7-4e5e-4502-8c9b-2021b7d8fed3.png)
+
+
+# you could see 'image stream' is not created newly. it is picked up from the 'image stream' we created.
+
+
+![image](https://user-images.githubusercontent.com/80065996/156154973-9c58871b-9505-4541-a428-5567dabb9562.png)
+
+
+# Adding more 'image stream tags'
+
+
+![image](https://user-images.githubusercontent.com/80065996/156157527-d8a5f0a8-a426-4c0b-a6c7-a5b541ebf4ab.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
