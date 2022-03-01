@@ -965,6 +965,254 @@
 
 
 
+# creating 'configmap' from the file 
+
+
+![image](https://user-images.githubusercontent.com/80065996/156124346-bf462743-009c-4f5a-9bc2-e214fbb532dd.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156124461-bdd1ee53-61c5-4230-88a8-de999c40228d.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156124591-b6815a73-ff3b-40cc-a5f2-ab308771a725.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156124861-b1deab52-faa2-4c02-86ea-86928aba06f5.png)
+
+
+
+![image](https://user-images.githubusercontent.com/80065996/156125059-a3fe1a2a-17f3-4ea1-983e-7b5d46f72a45.png)
+
+
+# instead of filename as 'key' in the configmap, we can provide the name to the file in the same command so that key will be the name we passed in the command
+
+
+![image](https://user-images.githubusercontent.com/80065996/156125723-8d0b0798-7604-4a8a-8a64-54713317602d.png)
+
+
+
+![image](https://user-images.githubusercontent.com/80065996/156125829-859c6d2a-685f-45b2-8c30-9fbce2243040.png)
+
+
+
+# Key value pair for this type of 'configmap' is created with the format.
+# key is the 'filename'
+# value will be content inside the file
+
+# 'configmap' is created. now we have to create 'deployment-config'. after creating 'deployment-config', we have to link the 'configmap' with 'deployment-config'
+
+
+![image](https://user-images.githubusercontent.com/80065996/156125461-2681df38-df3c-4d4f-ad0a-c5f9999b54ec.png)
+
+
+# connecting 'configmap(file-map)' with 'deployment-config(hello-world)'
+
+
+![image](https://user-images.githubusercontent.com/80065996/156128523-8d6b8199-ea8a-4c51-9ca4-1a89c18642a3.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156129547-404be984-05e9-4f09-8511-4e320873d6c3.png)
+
+
+# since we mapped both configmaps (file-map-1 and file-map-2), we could see both environment variable are set
+
+
+![image](https://user-images.githubusercontent.com/80065996/156129591-d5b7aa4d-c777-40eb-a6c7-c70f41a7d32d.png)
+
+
+# we are using 'Message' environment variable inside our golang code using 'os.Getenv(MESSAGE)'.
+# expose the service and check this. route will be created
+
+
+![image](https://user-images.githubusercontent.com/80065996/156130159-6ef7cff8-019f-4321-aedd-e4b9d94d8835.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156130097-370edc48-2bff-42f5-9329-185598da5828.png)
+
+
+# NOTE: CREATE A CONFIGMAP, CREATE THE DEPLOYMENT-CONFIG and then run the 'oc command set env' to connect both. (sometimes configmaps will not be picked up)
+
+
+# CONCEPT :=  CREATING 'CONFIGMAP' FROM DIRECTORY
+
+
+![image](https://user-images.githubusercontent.com/80065996/156132417-50446ca1-bfba-4e75-b935-420f4a72cc30.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156132814-9aad2f50-4628-4342-b4d6-090890e6088c.png)
+
+
+# directory 'pods'
+
+
+![image](https://user-images.githubusercontent.com/80065996/156132878-aef76bda-6460-4290-8645-6014328f0470.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156132951-c39f6377-0b07-4db7-8228-8b0796a1d9fb.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156133036-d86182e9-b67b-44e2-a6f6-89773ee108e3.png)
+
+
+# 'file name' inside the directory is created as a 'key' and contents of the files are created as 'value'. so forms the key-value pair
+
+
+# now we have to connect the configmap with deployment-config using 'oc set env' command
+
+
+![image](https://user-images.githubusercontent.com/80065996/156134576-2012b99d-0e6b-48f2-afda-eeb9ae7a9e7c.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156134610-0df00386-6984-4966-91e9-404a7ca79b87.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156134859-4a3ecc39-472a-4389-90e0-04fac75a2b7e.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156134913-fdc979e8-4543-40c1-87c1-d57cac6ee12c.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156134982-ea0d28da-232a-4bae-ad15-fc7cfa42c50e.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156135106-cbac159c-3a3e-4ec3-8a9b-4a06cbd860c2.png)
+
+
+
+![image](https://user-images.githubusercontent.com/80065996/156135262-8ebf49e8-1a50-4cc3-81c1-1a4bf9084464.png)
+
+
+
+![image](https://user-images.githubusercontent.com/80065996/156135746-1d1e4e0b-9023-4f0b-a78a-d1a0f575ced5.png)
+
+
+
+![image](https://user-images.githubusercontent.com/80065996/156135852-dd6c7b18-9832-4bfc-bf7f-1b00432fd0b3.png)
+
+
+# CONCEPT- 'SECRETS' INTRODUCTION
+# this is similar 'key-value' pair as of 'config-maps' but as per name suggests we need to use this to store sensitive information
+
+
+![image](https://user-images.githubusercontent.com/80065996/156135932-b63601b0-2cb5-403a-a33d-c217ec89d1c0.png)
+
+
+# Types of secrets.
+# Opaque tokens. This is generic token which dont have any proper structure. we can use as per our flexibility
+
+
+![image](https://user-images.githubusercontent.com/80065996/156137166-22045a6c-bb84-4d42-bb59-545bde44efd1.png)
+
+
+# 'service account' token. This token is used by the pods to communicate with other API's avaialble inside the openshift cluster. We are not going to cover this token
+# much in this course
+
+
+![image](https://user-images.githubusercontent.com/80065996/156137421-5c75c7fa-ebd6-4de7-b960-77378cdbd4c5.png)
+
+
+# Registry authentication token. This is used when we use 'images available in private registries' from the dockerhub,quay or any other public hosted registries.
+
+
+![image](https://user-images.githubusercontent.com/80065996/156138119-63e1b0da-aa56-4327-af11-f73c956671c9.png)
+
+
+
+# Authentication types when using secrets: This is used to access repos such as 'git' when openshift trying to conenct to them.
+
+
+![image](https://user-images.githubusercontent.com/80065996/156138535-7685afa5-697b-4e0b-8d15-b9f4f5d60017.png)
+
+
+# CONCEPT: CREATING 'OPAQUE SECRET' FOR CUSTOM AUTHENTICATION
+
+
+![image](https://user-images.githubusercontent.com/80065996/156138798-b3a256dd-cdf4-41a5-82f8-79ff6d6971bf.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156139030-c6023d44-6516-4d97-a25a-9c0a5d816b5d.png)
+
+
+
+![image](https://user-images.githubusercontent.com/80065996/156139228-c0b6a40c-354e-43ff-a180-7cc84447ab2e.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156139664-7b890338-3b15-48e7-8d20-06cf5d101e58.png)
+
+
+# YAML is showing key value (MESSAGE) but the corresponding value (encoded in base64) while showing as highlighted below
+
+
+![image](https://user-images.githubusercontent.com/80065996/156139924-4ed81417-4625-469d-874d-5e5c0b1ae351.png)
+
+
+# CONSUMING SECRETS AS ENVIRONMENT VARIABLES INSIDE THE APPLICATION RUNNING INSIDE THE POD USING 'DEPLOYMENT-CONFIG'
+
+
+![image](https://user-images.githubusercontent.com/80065996/156140286-2aee2fa8-3c0e-4c9e-9d62-81cfdc597adf.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156140939-5fd62ebb-e64e-4c25-8eb3-17dd13f41a50.png)
+
+
+# result. Below it displays the value of the environement variable 'MESSAGE'. But we are going to change it using 'secret'
+
+
+![image](https://user-images.githubusercontent.com/80065996/156141208-0857e1ed-26be-47d4-8da9-b428dcfadd19.png)
+
+
+# PODS currently running
+
+
+![image](https://user-images.githubusercontent.com/80065996/156141452-08412d5c-c577-4185-88e3-5e9e8fc3aa8c.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156141563-bce1a7ce-b7dd-412d-91b5-0bd7fb424599.png)
+
+
+# connecting 'secret' with 'deployment-config'. for every 'oc set env' connect statement old pod will be destoyed and new pods will be created using 'config-map'
+# or 'secret'.
+
+
+![image](https://user-images.githubusercontent.com/80065996/156141777-523072fa-48c3-452d-8941-b409d0830cf5.png)
+
+
+# you could see the value of 'MESSAGE' environment variable displayed using 'os.getenv($MESSAGE)' inside golang program as highlighted below
+
+
+![image](https://user-images.githubusercontent.com/80065996/156142174-5efb43ef-5ef3-4746-bea9-211dd5dd0a64.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156142595-67423011-c8f3-423d-b393-241b0ab194df.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156142940-c0ac111f-b683-4595-a6ff-d6114bbce5e2.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/156142799-233a9c6a-be61-4d10-8be9-9c7251a96221.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
