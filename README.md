@@ -1286,6 +1286,98 @@
 
 
 
+![image](https://user-images.githubusercontent.com/80065996/157685425-5196dee0-eea7-463a-9d5a-c1c3a062ab20.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157686964-0a843ba4-a05b-4dd7-9e3a-b637b8633c79.png)
+
+
+# adding images of different tag to the 'image stream' 
+
+
+![image](https://user-images.githubusercontent.com/80065996/157687094-28f55942-65b9-469b-9ca8-df6d01ec4d44.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157687346-50aaf56b-d986-41ce-abd4-73d7ea8e00ac.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157687528-2825b574-bbe7-4df0-8bfe-cba2a6c6493d.png)
+
+
+# how to create private image stream
+
+
+![image](https://user-images.githubusercontent.com/80065996/157688073-3a8a75ca-99bb-4926-877e-c5e18a2cdc66.png)
+
+
+# till now we have downloaded image from a public registry which does not have any authentication. Now we are going to set up a private registry
+
+# for our project, jenkins build the image using dockerfile, and push the image to artifactory. openshift in turn take image from artifactory and deploy in openshift
+
+
+# INTRO TO 'BUILD' AND 'BUILD-CONFIG' IN OPENSHIFT
+
+
+![image](https://user-images.githubusercontent.com/80065996/157692730-bd8ef2c7-b6c2-4a34-a2ea-e383cb7932b6.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157692966-64899bde-ceb6-44ba-b8fb-9947f7ebade2.png)
+
+
+# we have given link of 'gitlab' repository where code and 'dockerfile' exits
+
+
+![image](https://user-images.githubusercontent.com/80065996/157693916-160180e3-85bc-42d3-b165-e7d9bc06aa3c.png)
+
+
+# from the dockerfile, base image 'golang:1.17.7' is taken, and 'image stream' is created also trigger will be attached to it to capture any changes to that image.
+
+
+![image](https://user-images.githubusercontent.com/80065996/157694468-6e82c3db-bdd3-4456-973e-b785f6687387.png)
+
+
+
+![image](https://user-images.githubusercontent.com/80065996/157694815-d91b7be3-834b-440c-ba01-35321b28a1da.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157702157-7e0e2938-f049-4cda-a3b8-18b55f05c8d3.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157702402-5e55110c-59d7-4359-8c87-ca96eaae82b7.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157703137-357d9a7e-06be-488e-a1b3-0d5179e557d8.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157703773-2b9663fc-7c0f-4cb7-a939-d2d3918d7bff.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157704061-9d9bd615-2aa1-4585-ba5a-bb5fffdb2652.png)
+
+
+# how to check 'logs' for the 'builds'
+
+
+![image](https://user-images.githubusercontent.com/80065996/157704318-ab18470b-5c7e-4e6c-8cf9-68871096f8ad.png)
+
+
+
+![image](https://user-images.githubusercontent.com/80065996/157705802-57348717-5144-4498-b203-5910d0c61adc.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157705903-023c744a-faed-4a16-8502-7d771970fec5.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157705973-54fca8f9-a166-4297-821e-4756f5b0d2ed.png)
+
+
+# you can see 'build' takes code from github and take 'dockerfile' from github and build the 'dockerfile' and push the image built into 'openshift registry'
+
+
+![image](https://user-images.githubusercontent.com/80065996/157708326-f9b6e3e0-c1f4-48d5-8461-72a6d5fa4a15.png)
+
+
+
 
 
 
