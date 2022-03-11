@@ -1377,7 +1377,146 @@
 ![image](https://user-images.githubusercontent.com/80065996/157708326-f9b6e3e0-c1f4-48d5-8461-72a6d5fa4a15.png)
 
 
+# HOW TO START A BUILD. (PREVIOUS WE SAW 'OC NEW-BUILD' NOW WE ARE GOING TO USE 'OC START BUILD')
 
+
+# create 2 new powershell window. 1st window for watching pod
+
+
+![image](https://user-images.githubusercontent.com/80065996/157836430-2563e4c7-35f2-435c-87ba-395ad6f56670.png)
+
+
+# second window for 'starting the build'
+
+
+![image](https://user-images.githubusercontent.com/80065996/157836482-03bb0e02-189b-438e-b459-aab0847196d8.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157836741-b2afc815-af88-47c5-b62d-95cebf913977.png)
+
+
+
+![image](https://user-images.githubusercontent.com/80065996/157836934-fece2610-f506-4117-87a7-d3a90605404e.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157837034-bbdcb4d6-bc2d-4b6c-b277-544062b1a2d4.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157837613-d9089e95-abe5-45fe-a59e-98e7ed6e6b53.png)
+
+
+
+![image](https://user-images.githubusercontent.com/80065996/157838428-2fbb52ba-81b9-44d7-8f69-af990096d15f.png)
+
+
+# Cancelling builds in the middle
+
+
+![image](https://user-images.githubusercontent.com/80065996/157838662-47a3c6fc-e35b-4a4f-9465-985f0d02cd0b.png)
+
+
+# for this demo, opening a 2 powershell terminals, one for watching pods and other for triggering and cancelling the 'build'
+
+
+![image](https://user-images.githubusercontent.com/80065996/157840372-e78ebcdb-285e-4c54-9875-a35dad1a7f39.png)
+
+
+# you could see build is cancelled in between using command and pods created are terminated in the middle once we cancel the build manually
+
+# 'BUILD CONFIG' IS LIKE THE JENKINS PIPELINE CREATION JOB. 'BUILD' IS LIKE EACH AND EVERY BUILD JOB WHICH JENKINS IS CREATING. WE CAN CREATE ANY NUMBER OF BUILDS
+# WHILE SEEING 'OC LOGS' YOU CAN ALWAYS USE LATEST BUILD FOR LOGS 'OC LOGS 'LATEST BUILD''. DONT USE THE 'BUILD CONFIG' FOR CHECKING 'OC LOGS'
+
+# 'IMAGE STREAM' IS THE REPOSITORY OF STORING 'IMAGE STRAM TAG(IMAGES WITH TAGS))'. WHILE CREATING 'DEPLOYMENT CONFIG' OR 'BUILD CONFIG' MOSTLY 'IMAGE STREAM'
+# WILL BE CREATED AND IT PUTS THE RESULTANT IMAGE IT CREATED FROM DOCKERFILE IN THE GITHUB IN THE 'IMAGE STREAM' WITH TAG ATTACHED TO IT (IMAGE STREAM TAG)'
+
+
+
+
+# building 'webhooks'
+
+
+![image](https://user-images.githubusercontent.com/80065996/157841062-5079e0e1-0651-4519-86ed-13c398475ba0.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157842564-680ec517-8738-48e9-8add-dbe9457f7fce.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157843170-cb042a3e-55b0-4649-b6c9-2e42d0256d09.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157843337-ef32c93b-be35-477c-98cf-e437258e7878.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157843517-54a4a89e-757d-416a-80cc-2bef7d104564.png)
+
+
+# IF YOU GET THE YAML, WE CAN GET THE 'SECRET' UNDER 'TRIGGERS' SECTION 
+
+
+![image](https://user-images.githubusercontent.com/80065996/157844032-5df98f14-99fd-4f2e-a219-8f13284d23d9.png)
+
+
+# take the 'generic secret' from the yaml we have created.
+
+
+![image](https://user-images.githubusercontent.com/80065996/157844151-9d94fbc2-d9aa-4bea-9522-d80b35745899.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157844263-2817c535-e91e-43dc-b029-cdaf061e5fb8.png)
+
+
+
+![image](https://user-images.githubusercontent.com/80065996/157846387-1000c341-27b6-450a-adac-dcad44acfe12.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157846997-1705759f-691e-4411-bcc5-c71bdc5527dc.png)
+
+
+# we cannot manually create a 'webhook' for this demo. because for that we need git to be hosted in some public server. that is not possible now.
+# instead we can mimic the 'code commit' sceanrio by taking 'secret' value by creating YAML file out of 'build config' command. (from the YAML file, take the secret value
+# from the 'generic' section). 
+
+# next using the 'describe' command for 'build config', we can take the 'URL' of the github webhook. After that simply run a POST request using CURL,
+# by using a 'secret' we got from the YAML file
+
+
+![image](https://user-images.githubusercontent.com/80065996/157851284-afee63b9-a3ba-4d29-80fc-a00705d0168e.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157851378-71ba89f8-c45b-45c0-9724-cfa1ccdeae49.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157851439-b8bb0510-9d4b-44e4-978b-b585938df54f.png)
+
+
+# we mimic the simple POST command.  you can see in 'webconsole' sandbox, new 'build' is started. 
+
+
+![image](https://user-images.githubusercontent.com/80065996/157851575-c80dd131-8c64-475e-805f-1aa5a2066288.png)
+
+
+
+# in the same mechanism 'webhook' will be set up, for any of the code commit, new 'build' will be started.
+
+
+![image](https://user-images.githubusercontent.com/80065996/157851999-03ab90b1-0006-44d7-8205-24e6b8d26ef1.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157852136-68c1c5f1-e406-4421-8bdb-fd565baa83e7.png)
+
+
+# cleaned the openshift cluster and created 'new-build' for 'update-message' branch in the git.(previously we did for master branch)
+
+
+![image](https://user-images.githubusercontent.com/80065996/157853039-682743c9-e0bb-4969-b20e-e50c84f4bd00.png)
+
+
+
+![image](https://user-images.githubusercontent.com/80065996/157854546-84c5c5dc-8023-406b-b3c1-b464da6ead6d.png)
+
+
+# now 'build','build config', 'image stream' and 'image stream tag' are created using 'update-message' branch from 'gitlab'.
+# build take code, build it and created the image and tage it and put inside the 'image stream'
 
 
 
