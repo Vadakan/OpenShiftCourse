@@ -1520,6 +1520,104 @@
 
 
 
+# How to build a sub directory from the 'github' repository
+
+
+![image](https://user-images.githubusercontent.com/80065996/158127900-fff24976-0d59-4ae8-9e76-93ae5840274d.png)
+
+
+# Goal of this demo is to build the code present under the particular sub directory (example: take this 'hello-world-go' directory from this repo)
+# this is same as ' bit bucket will have many 'repositories' under the 'project' option'. so we are going to create a build only for a partiuclar folder under it(parituclar repo)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158128776-40128110-44d2-4bcf-9181-672ec3eff184.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158129235-a71dc854-551a-4777-8598-cbbc07ba0a0f.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158130128-e9b17817-f3b1-4542-b88f-fd2269a791af.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158130235-85f5ca98-d092-4937-8a23-5220b49204bc.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158130548-367358f4-8764-4fef-a243-ab23ac643d3f.png)
+
+
+# NOTE: Usage of the URL in the above demo will be the root URL of the gitlab or bit bucket. From that we mentioned a directory (repo inside the project incase of bitbucket)
+
+
+# Configuring 'Build hooks'
+
+
+![image](https://user-images.githubusercontent.com/80065996/158131104-b5fb3b88-3ae7-488d-ace6-6c10745cc9b2.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158131241-288e7e1c-8768-40fa-b73c-93106427078a.png)
+
+
+# Using 'build hooks'
+
+
+![image](https://user-images.githubusercontent.com/80065996/158131712-b5557413-0d84-4566-bf89-d45ae560edae.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158132937-ef5174e4-cbb9-48d8-b61f-e5c841efdb27.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158133338-52fa84bb-5206-4d6c-8d1e-bfaa1bb4934d.png)
+
+
+# Updating 'build hooks' - post commit hook
+# Default 'post commit hook' is to push the image to push the image built in 'image stream'
+
+
+![image](https://user-images.githubusercontent.com/80065996/158135164-bed7bef2-cede-465e-9ff8-ace2ca6f81c0.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158136128-f267b5b6-2f37-4b54-8f88-606cc592e371.png)
+
+
+# now we updated the 'default post commit hook'. You can check below - 'post commit hook' is updated
+
+
+![image](https://user-images.githubusercontent.com/80065996/158136420-9f257587-3cc6-41df-aa21-15362e23b331.png)
+
+
+# starting the build to see the updated 'post commit hook'
+
+
+![image](https://user-images.githubusercontent.com/80065996/158136571-89aa23cc-d0fd-4e45-8c60-3491c41fd109.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158136992-f1a5b2c7-51d7-4b62-9a50-11d2775ddf5e.png)
+
+
+
+![image](https://user-images.githubusercontent.com/80065996/158137069-7fb85dfb-f409-4fac-bd19-0464fb9f5431.png)
+
+
+# setting another 'post commit hook' - making build fail manually by setting 'post-commit' hook
+
+
+![image](https://user-images.githubusercontent.com/80065996/158137643-174e2db0-0dc8-4f49-9272-09e88e9d2781.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158140364-64614e60-8c6e-4fd1-9c82-595e3cb6b500.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158140758-76666c48-691f-4e20-81c6-94eaad39c712.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158140868-f2c47d26-2a4a-46b9-8f4d-510d52e5239f.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158140963-aa3b45e7-f823-45b6-843f-d2798033e16e.png)
+
+
+
+
 
 
 
