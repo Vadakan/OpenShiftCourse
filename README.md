@@ -1616,6 +1616,107 @@
 ![image](https://user-images.githubusercontent.com/80065996/158140963-aa3b45e7-f823-45b6-843f-d2798033e16e.png)
 
 
+![image](https://user-images.githubusercontent.com/80065996/158141921-ff4917dd-7451-4b59-9495-696c800244ac.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158142016-fe85b2c4-a31f-4ec6-93f1-2c4d08857933.png)
+
+
+# removing the 'post commit build hook'
+
+
+![image](https://user-images.githubusercontent.com/80065996/158142264-b46343ee-8541-4acb-b688-45d63d244561.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158142389-3191063b-8f27-45ae-b5c4-db6432e26294.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158142888-fbd7d3d5-fa89-404a-8900-ef3e0c0c8366.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158143164-0f2abc6e-9df2-4021-bedb-a105eb762ecb.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158143391-a6ba11a9-c0ed-4df7-bfa9-c37b1b9c5726.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158143553-02cc8a0f-79b6-48d4-8f06-1ec8adcdb296.png)
+
+
+# This time after removing 'post commit hook', now you could see default hook executed which created 'image stream' and pushed the 'images' into 'image stream'
+
+
+![image](https://user-images.githubusercontent.com/80065996/158143631-acdea054-0a72-4687-a954-7b06567ff454.png)
+
+
+# S2I -source to image
+
+# S2I is similar to 'Dockerfile'. 'Docker file' is the source to create 'docker images'. as the name suggests, 'source to image' is we should have some kind of data as a 
+# source to create the images.
+# Why we need S2I even if we have Dockerfile. s2I is redhat resource and we dont even need to use 'Dockerfile' to create the images. 
+# S2I is by default integrated with 'oc new-app' command in openshift.
+
+
+![image](https://user-images.githubusercontent.com/80065996/158150307-d96483f0-be43-4340-a7a8-82b638bc3033.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158150413-4000a0c2-45c4-451a-9752-1c20b0a4084e.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158150681-ae5d8729-4f27-4a52-a0d8-1d370cd1cb96.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158150818-5996bba4-d6eb-4a0f-86ab-2d82bae9eb2b.png)
+
+
+# file going to be used for this demo,
+
+# if you see this repository, there is no Dockerfile available. But we can use S2I resource of openshift to create the image even without Dockerfile
+
+
+![image](https://user-images.githubusercontent.com/80065996/158153423-f104c5ee-e02d-49f3-9181-1a16d2ac2f2a.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158161660-8cbe3a4e-d599-4900-b6c8-cb89d06c1506.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158161708-05f58570-e04e-428d-ba75-7125e3e1f86c.png)
+
+
+# from the above screenshots, we could see there are no 'Dockerfile' available for this 'Ruby on Rails' code. Lets use 'oc new-app' command
+# to check how it works
+
+
+![image](https://user-images.githubusercontent.com/80065996/158162612-2919549c-e09b-46a9-bcfe-8a2272f4c20e.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158162991-63a0eaa9-64bb-4fb7-895c-0b881ae38fd6.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158163942-9cc73d67-cfcb-428c-8672-bc9adaff6544.png)
+
+
+# NOTE: as name suggests, S2I will get 'source code' of whatever the language and openshift will take the corresponding base image and build it and create the 
+# 'deployment config' and create the 'service', 'image stream' and 'image stream tag' with the name of parent folder (lab) (project - incase of bitbucket)
+# once you expose the 'SVC' created, Route will be created and you can access the website from outside of openshift cluster
+
+
+![image](https://user-images.githubusercontent.com/80065996/158165653-1060dbf7-c1fb-40c2-98b4-6ada5293c4a3.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158165779-dbbdb37f-bc85-4e9d-af26-1887d1f837f2.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158165824-b70d9382-c348-4ecb-94ed-13ed69535c28.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158167007-d9e5f427-174a-4780-b7df-a081376919d2.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158167192-7e1b8bbe-2a8b-433c-a4ca-3d13ebad11f2.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158167298-5d3af5cc-669b-46d0-9ad6-0330c121ede4.png)
 
 
 
