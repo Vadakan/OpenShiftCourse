@@ -1719,6 +1719,32 @@
 ![image](https://user-images.githubusercontent.com/80065996/158167298-5d3af5cc-669b-46d0-9ad6-0330c121ede4.png)
 
 
+# How S2I auto detection works?
+
+
+![image](https://user-images.githubusercontent.com/80065996/158168925-a4e0ea3a-1f5f-42c4-872d-13ef0a844f3e.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158169152-c920691c-dc17-4e31-8b53-ea9c1e084ed3.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158169257-e0e7e5c9-e7e7-4833-ad4b-16997530a1af.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158169476-3cf0af3d-6c43-47cc-97b6-0c477da7ea7c.png)
+
+
+# Explicit ovverride on S2I - Mentioning Explicit builder image 
+
+
+![image](https://user-images.githubusercontent.com/80065996/158170124-f1bb2a35-4f05-438e-adbc-58ba5aca53aa.png)
+
+
+![image](https://user-images.githubusercontent.com/80065996/158171354-98302c00-02e8-4b7a-81d3-4b96511d8011.png)
+
+
+
+
 
 
 
