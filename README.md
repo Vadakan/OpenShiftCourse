@@ -1,6 +1,13 @@
 # OpenShiftCourse
 
 
+# kubernetes API resources :
+
+
+![image](https://user-images.githubusercontent.com/80065996/158412881-c76a5e2f-76a1-4d48-93cd-babcde254129.png)
+
+
+
 # Resources we are going to see
 
 # openshift has 2 planes in its architecure. 
